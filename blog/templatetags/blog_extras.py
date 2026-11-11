@@ -45,6 +45,7 @@ def col(extra_classes=""):
 def endcol():
     return format_html("</div>")
 
+@register.inclusion_tag("blog/post-list.html")
 def recent_posts(post):
     posts = Post.objects.exclude(pk=post.pk)[:5]
     return {"title": "Recent Posts", "posts": posts}
